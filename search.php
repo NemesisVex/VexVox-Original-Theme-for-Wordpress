@@ -9,12 +9,12 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+	<section id="primary" class="content-area row">
+		<div id="content" class="site-content col-md-12" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
+			<header class="">
 				<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'vexvox' ), get_search_query() ); ?></h2>
 			</header><!-- .page-header -->
 
@@ -44,6 +44,5 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php
-get_sidebar( 'content' );
-get_sidebar();
+get_sidebar( 'vexvox' );
 get_footer();

@@ -44,17 +44,21 @@ function vexvox_paging_nav() {
 		'add_args' => array_map( 'urlencode', $query_args ),
 		'prev_text' => __( '&laquo; Previous', 'vexvox' ),
 		'next_text' => __( 'Next &raquo;', 'vexvox' ),
+		'type' => 'list',
+		'list_class' => 'pagination',
 	) );
 
 	if ( $links ) :
 
 	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h4 class="screen-reader-text"><?php _e( 'Posts navigation', 'vexvox' ); ?></h4>
-		<p class="pagination loop-pagination centered">
+	<div class="row">
+		<nav class="navigation paging-navigation col-md-12" role="navigation">
+			<h4 class="screen-reader-text sr-only"><?php _e( 'Posts navigation', 'vexvox' ); ?></h4>
+			<p class="loop-pagination centered">
 			<?php echo $links; ?>
-		</p><!-- .pagination -->
-	</nav><!-- .navigation -->
+			</p><!-- .pagination -->
+		</nav><!-- .navigation -->
+	</div>
 	<?php
 	endif;
 }
@@ -76,18 +80,17 @@ function vexvox_post_nav() {
 	}
 
 	?>
-	<nav class="navigation post-navigation entry-nav" role="navigation">
+	<nav class="navigation post-navigation entry-nav col-md-12" role="navigation">
 		<h4 class="screen-reader-text sr-only"><?php _e( 'Post navigation', 'vexvox' ); ?></h4>
 		<div class="nav-links entry-nav">
-			<p>
+			<ul class="pager">
 			<?php if ( is_attachment() ) : ?>
-				<p><?php previous_post_link( '%link', __( '<span class="meta-nav">Published In</span>%title', 'vexvox' ) ); ?></p>
+				<li><?php previous_post_link( '%link', __( '<span class="meta-nav">Published In</span>%title', 'vexovx' ) ); ?></li>
 			<?php else : ?>
-				<?php previous_post_link( '%link', __( '<span class="meta-nav" title="Previous Post: %title">PREVIOUS</span>', 'vexvox' ) ); ?>
-				<?php if ((get_previous_post_link() != "") && (get_next_post_link() != "")): ?>&#149;<?php endif; ?>
-				<?php next_post_link( '%link', __( '<span class="meta-nav" title="Next Post: %title">NEXT</span>', 'vexvox' ) ); ?>
+				<li class="previous"><?php previous_post_link( '%link', __( '<span class="meta-nav" title="Previous Post: %title">Previous</span>', 'vexvox' ) ); ?></li>
+				<li class="next"><?php next_post_link( '%link', __( '<span class="meta-nav" title="Next Post: %title">Next</span>', 'vexvox' ) ); ?></li>
 			<?php endif; ?>
-			</p>
+			</ul>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
