@@ -18,34 +18,24 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div class="row">
+	<div id="comments" class="comments-area col-md-offset-4 col-md-8">
 
 	<?php if ( have_comments() ) : ?>
 	
-	<div class="span-14 last source-label">
-		<h3 class="comments-title source-title">
-			Comments
-			<?php
-			/*
-			 * 
-				printf( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'vexvox' ),
-					number_format_i18n( get_comments_number() ), get_the_title() );
-			 */
-			?>
-		</h3>
-	</div>
+		<div class="source-label">
+			<h3 class="comments-title source-title">Comments</h3>
+		</div>
 
-	<div class="span-14 last prepend-top">
+		<div class="comments-list-area">
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h4 class="screen-reader-text"><?php _e( 'Comment navigation', 'vexvox' ); ?></h4>
+			<h4 class="screen-reader-text sr-only"><?php _e( 'Comment navigation', 'vexvox' ); ?></h4>
 
 			<ul class="pager">
 				<li><div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'vexvox' ) ); ?></div></li>
 				<li><div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'vexvox' ) ); ?></div></li>
 			</ul>
-
-
 		</nav><!-- #comment-nav-above -->
 		<?php endif; // Check for comment navigation. ?>
 
@@ -66,10 +56,8 @@ if ( post_password_required() ) {
 				<li><div class="nav-previous"><?php previous_comments_link( __( '&laquo; Older Comments', 'vexvox' ) ); ?></div></li>
 				<li><div class="nav-next"><?php next_comments_link( __( 'Newer Comments &raquo;', 'vexvox' ) ); ?></div></li>
 			</ul>
-
-
 		</nav><!-- #comment-nav-below -->
-	<?php endif; // Check for comment navigation. ?>
+		<?php endif; // Check for comment navigation. ?>
 
 	<?php if ( ! comments_open() ) : ?>
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'vexvox' ); ?></p>
@@ -85,14 +73,15 @@ if ( post_password_required() ) {
 			'email' => '<div class="comment-form-email form-group"><label for="email" class="control-label">' . __( 'Email', 'domainreference' ) . ' <span class="required">*</span></label> ' . ( $req ? '<div class="">' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div></div>',
 			'url' => '<div class="comment-form-url form-group"><label for="url" class="control-label">' . __( 'Website', 'domainreference' ) . '</label>' . '<div class=""><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></div></div>',
 		)),
-		'comment_field' => '<div class="comment-form-comment form-group"><label for="comment" class="col-sm-2 control-label">' . _x( 'Comment', 'noun' ) . '</label><div class=""><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" class="form-control"></textarea></div></div>',
+		'comment_field' => '<div class="comment-form-comment form-group"><label for="comment" class="control-label">' . _x( 'Comment', 'noun' ) . '</label><div class=""><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" class="form-control"></textarea></div></div>',
 		'comment_notes_after' => '<p class="form-allowed-tags help-block">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), allowed_tags() ) . '</p>',
 		'class_form' => 'form-horizontal',
 		'class_submit' => 'btn btn-default',
 		'title_reply' => __('Post a comment'),
 	);
-	comment_form($comment_args);
+	(function_exists( 'bootstrap_comment_form' ) === true ) ? bootstrap_comment_form($comment_args) : comment_form($comment_args);
 	?>
 		
 
-</div><!-- #comments -->
+	</div><!-- #comments -->
+</div>

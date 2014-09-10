@@ -3,7 +3,7 @@ Theme Name: VexVox
 Author: Greg Bueno
 Author URI: http://gregbueno.com/wp/vexvox/
 Description: A WordPress theme customized for VexVox.
-Version: 1.0
+Version: 1.1.2
 Text Domain: vexvox
 */
 
@@ -70,4 +70,12 @@ Text Domain: vexvox
 
 .widget {
 	margin-top: 1em;
+}
+
+.site-info {
+	margin-top: 1em;
+}
+
+.post-navigation {
+	border-top: 1px solid #253431;
 }

@@ -35,7 +35,7 @@ function vexvox_paging_nav() {
 	$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
 
 	// Set up paginated links.
-	$links = paginate_links( array(
+	$pagination_args = array(
 		'base'     => $pagenum_link,
 		'format'   => $format,
 		'total'    => $GLOBALS['wp_query']->max_num_pages,
@@ -44,7 +44,10 @@ function vexvox_paging_nav() {
 		'add_args' => array_map( 'urlencode', $query_args ),
 		'prev_text' => __( '&laquo; Previous', 'vexvox' ),
 		'next_text' => __( 'Next &raquo;', 'vexvox' ),
-	) );
+		'type' => 'list',
+		'list_class' => 'pagination',
+	);
+	$links = ( function_exists( 'bootstrap_paginate_links' ) === true ) ? bootstrap_paginate_links( $pagination_args ) : paginate_links( $pagination_args );
 
 	if ( $links ) :
 
