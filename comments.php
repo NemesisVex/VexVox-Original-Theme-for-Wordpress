@@ -79,7 +79,7 @@ if ( post_password_required() ) {
 		'class_submit' => 'btn btn-default',
 		'title_reply' => __('Post a comment'),
 	);
-	comment_form($comment_args);
+	(function_exists( 'bootstrap_comment_form' ) === true ) ? bootstrap_comment_form($comment_args) : comment_form($comment_args);
 	?>
 		
 
