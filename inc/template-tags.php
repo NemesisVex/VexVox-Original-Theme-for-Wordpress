@@ -35,7 +35,7 @@ function vexvox_paging_nav() {
 	$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
 
 	// Set up paginated links.
-	$links = paginate_links( array(
+	$pagination_args = array(
 		'base'     => $pagenum_link,
 		'format'   => $format,
 		'total'    => $GLOBALS['wp_query']->max_num_pages,
@@ -46,19 +46,18 @@ function vexvox_paging_nav() {
 		'next_text' => __( 'Next &raquo;', 'vexvox' ),
 		'type' => 'list',
 		'list_class' => 'pagination',
-	) );
+	);
+	$links = ( function_exists( 'bootstrap_paginate_links' ) === true ) ? bootstrap_paginate_links( $pagination_args ) : paginate_links( $pagination_args );
 
 	if ( $links ) :
 
 	?>
-	<div class="row">
-		<nav class="navigation paging-navigation col-md-12" role="navigation">
-			<h4 class="screen-reader-text sr-only"><?php _e( 'Posts navigation', 'vexvox' ); ?></h4>
-			<p class="loop-pagination centered">
+	<nav class="navigation paging-navigation" role="navigation">
+		<h4 class="screen-reader-text"><?php _e( 'Posts navigation', 'vexvox' ); ?></h4>
+		<p class="pagination loop-pagination centered">
 			<?php echo $links; ?>
-			</p><!-- .pagination -->
-		</nav><!-- .navigation -->
-	</div>
+		</p><!-- .pagination -->
+	</nav><!-- .navigation -->
 	<?php
 	endif;
 }
@@ -80,17 +79,18 @@ function vexvox_post_nav() {
 	}
 
 	?>
-	<nav class="navigation post-navigation entry-nav col-md-12" role="navigation">
+	<nav class="navigation post-navigation entry-nav" role="navigation">
 		<h4 class="screen-reader-text sr-only"><?php _e( 'Post navigation', 'vexvox' ); ?></h4>
 		<div class="nav-links entry-nav">
-			<ul class="pager">
+			<p>
 			<?php if ( is_attachment() ) : ?>
-				<li><?php previous_post_link( '%link', __( '<span class="meta-nav">Published In</span>%title', 'vexovx' ) ); ?></li>
+				<p><?php previous_post_link( '%link', __( '<span class="meta-nav">Published In</span>%title', 'vexvox' ) ); ?></p>
 			<?php else : ?>
-				<li class="previous"><?php previous_post_link( '%link', __( '<span class="meta-nav" title="Previous Post: %title">Previous</span>', 'vexvox' ) ); ?></li>
-				<li class="next"><?php next_post_link( '%link', __( '<span class="meta-nav" title="Next Post: %title">Next</span>', 'vexvox' ) ); ?></li>
+				<?php previous_post_link( '%link', __( '<span class="meta-nav" title="Previous Post: %title">PREVIOUS</span>', 'vexvox' ) ); ?>
+				<?php if ((get_previous_post_link() != "") && (get_next_post_link() != "")): ?>&#149;<?php endif; ?>
+				<?php next_post_link( '%link', __( '<span class="meta-nav" title="Next Post: %title">NEXT</span>', 'vexvox' ) ); ?>
 			<?php endif; ?>
-			</ul>
+			</p>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
