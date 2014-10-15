@@ -6,11 +6,11 @@
  *
  * @package WordPress
  * @subpackage VexVox
- * @since VexVox 1.0
+ * @since VexVox 1.2
  */
 ?>
 
-				<footer id="colophon" class="col-md-12" role="contentinfo">
+				<footer class="col-md-12" role="contentinfo">
 
 					<?php get_sidebar( 'footer' ); ?>
 

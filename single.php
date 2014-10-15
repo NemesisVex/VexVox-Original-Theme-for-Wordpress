@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage VexVox
- * @since VexVox 1.0
+ * @since VexVox 1.2
  */
 
 get_header(); ?>
@@ -27,7 +27,7 @@ get_header(); ?>
 							endwhile;
 
 							// Previous/next post navigation.
-							vexvox_post_nav();
+							VexVox_Template_Tags::post_nav();
 						?>
 					</section>
 

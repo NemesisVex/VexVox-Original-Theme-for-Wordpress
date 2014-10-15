@@ -25,10 +25,10 @@
 									<div class="col-md-4">
 									<?php
 										if ('post' == get_post_type())
-											vexvox_posted_on();
+											VexVox_Template_Tags::posted_on();
 									?>
 
-									<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && vexvox_categorized_blog() ) : ?>
+									<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && VexVox_Template_Tags::categorized_blog() ) : ?>
 										<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'vexvox' ) ); ?></span>
 									<?php endif; ?>
 
