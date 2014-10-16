@@ -54,5 +54,5 @@
 		</div><!-- #content -->
 	</section><!-- #primary -->
 
-<?php get_sidebar( 'vexvox' ); ?>
+<?php get_sidebar(); ?>
 <?php get_footer();

@@ -68,16 +68,19 @@ class VexVox_Template_Tags {
 		}
 
 		?>
-		<nav role="navigation">
-			<h4 class="sr-only"><?php _e( 'Post navigation', 'musicwhore2014' ); ?></h4>
-			<ul class="pager">
-				<?php if ( is_attachment() ) : ?>
-					<li><?php previous_post_link( '%link', __( 'Published In %title', 'musicwhore2015' ) ); ?></li>
+		<nav class="post-navigation" role="navigation">
+			<h4 class="sr-only"><?php _e( 'Post navigation', 'vexvox' ); ?></h4>
+			<div class="nav-links entry-nav">
+				<p>
+					<?php if ( is_attachment() ) : ?>
+				<p><?php previous_post_link( '%link', __( '<span title="Published In %title">Published In</span> %title', 'vexvox' ) ); ?></p>
 				<?php else : ?>
-					<li><?php previous_post_link( '%link', __( '<span title="Previous Post: %title">Previous</span>', 'musicwhore2015' ) ); ?></li>
-					<li><?php next_post_link( '%link', __( '<span title="Next Post: %title">Next</span>', 'musicwhore2015' ) ); ?></li>
+					<?php previous_post_link( '%link', __( '<span title="Previous Post: %title">PREVIOUS</span>', 'vexvox' ) ); ?>
+					<?php if ((get_previous_post_link() != "") && (get_next_post_link() != "")): ?>&#149;<?php endif; ?>
+					<?php next_post_link( '%link', __( '<span title="Next Post: %title">NEXT</span>', 'vexvox' ) ); ?>
 				<?php endif; ?>
-			</ul>
+				</p>
+			</div><!-- .nav-links -->
 		</nav><!-- .navigation -->
 	<?php
 	}

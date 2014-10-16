@@ -74,7 +74,7 @@ if ( post_password_required() ) {
 			'email' => '<div class="form-group"><label for="email" class="control-label">' . __( 'Email', 'vexvox' ) . ' <span class="required">*</span></label> ' . ( $req ? '<div class="">' : '' ) . '<input id="email" class="form-control" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div></div>',
 			'url' => '<div class="form-group"><label for="url" class="control-label">' . __( 'Website', 'vexvox' ) . '</label>' . '<div class=""><input id="url" class="form-control" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></div></div>',
 		)),
-		'comment_field' => '<div class="comment-form-comment form-group"><label for="comment" class="control-label">' . _x( 'Comment', 'noun' ) . '</label><div class=""><textarea id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true" class="form-control"></textarea></div></div>',
+		'comment_field' => '<div class="form-group"><label for="comment" class="control-label">' . _x( 'Comment', 'noun' ) . '</label><div class=""><textarea id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true" class="form-control"></textarea></div></div>',
 		'comment_notes_after' => '<p class="form-allowed-tags help-block">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), allowed_tags() ) . '</p>',
 		'class_form' => 'form',
 		'class_submit' => 'btn btn-default',

@@ -25,8 +25,11 @@ class VexVox_Filters {
 	}
 
 	public static function widgets_init() {
-//	require get_template_directory() . '/inc/widgets.php';
-//	register_widget( 'Musicwhore2014_Ephemera_Widget' );
+		require get_template_directory() . '/lib/VexVox_About_Widget.php';
+		require get_template_directory() . '/lib/VexVox_Yearly_Archive_Widget.php';
+
+		register_widget( 'VexVox_About_Widget' );
+		register_widget( 'VexVox_Yearly_Archive_Widget' );
 
 		register_sidebar( array(
 			'name'          => __( 'Primary Sidebar', 'vexvox' ),

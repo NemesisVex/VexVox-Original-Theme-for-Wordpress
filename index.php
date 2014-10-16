@@ -25,5 +25,5 @@
 <?php else : ?>
 	<?php get_template_part( 'content', 'none' ); // If no content, include the "No posts found" template. ?>
 	<?php endif; ?>
-<?php get_sidebar( 'vexvox' ); ?>
+<?php get_sidebar(); ?>
 <?php get_footer();
