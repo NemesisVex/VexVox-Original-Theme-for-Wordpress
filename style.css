@@ -3,41 +3,39 @@ Theme Name: VexVox
 Author: Greg Bueno
 Author URI: http://gregbueno.com/wp/vexvox/
 Description: A WordPress theme customized for VexVox.
-Version: 1.1.2
+Version: 1.2
 Text Domain: vexvox
 */
-
 .site-info {
-	padding-bottom: 1em;
+  padding-bottom: 1em;
+  margin-top: 1em;
 }
-
 .comment-list {
-	list-style: none;
-	padding-bottom: 1em;
+  list-style: none;
+  padding-bottom: 1em;
 }
-
 .comment-author {
-	position: relative;
+  position: relative;
 }
-
 .comment-author .avatar {
-	height: 34px;
-	top: 2px;
-	width: 34px;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	padding: 2px;
-	position: absolute;
-	left: 0;
+  height: 34px;
+  top: 2px;
+  width: 34px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 2px;
+  position: absolute;
+  left: 0;
 }
-
-.comment-author, .comment-awaiting-moderation, .comment-content, .comment-list .reply, .comment-metadata {
-	padding-left: 50px;
+.comment-author,
+.comment-awaiting-moderation,
+.comment-content,
+.comment-list .reply,
+.comment-metadata {
+  padding-left: 50px;
 }
-
 .comment-reply-title {
-	border-bottom: 1px solid #253431;
+  border-bottom: 1px solid #253431;
 }
-
 .bypostauthor > article .fn:before,
 .comment-edit-link:before,
 .comment-reply-link:before,
@@ -48,34 +46,25 @@ Text Domain: vexvox
 .search-toggle:before,
 .slider-direction-nav a:before,
 .widget_twentyfourteen_ephemera .widget-title:before {
-	-webkit-font-smoothing: antialiased;
-	display: inline-block;
-	font: normal 16px/1 Genericons;
-	text-decoration: inherit;
-	vertical-align: text-bottom;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font: normal 16px/1 Genericons;
+  text-decoration: inherit;
+  vertical-align: text-bottom;
 }
-
 .comment-edit-link {
-	margin-left: 10px;
-	text-decoration: none;
+  margin-left: 10px;
+  text-decoration: none;
 }
-
 .comment-edit-link:before {
-	content: "\f411";
+  content: "\f411";
 }
-
 .says {
-	display: none;
+  display: none;
 }
-
 .widget {
-	margin-top: 1em;
+  margin-top: 1em;
 }
-
-.site-info {
-	margin-top: 1em;
-}
-
 .post-navigation {
-	border-top: 1px solid #253431;
+  border-top: 1px solid #253431;
 }

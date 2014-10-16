@@ -6,28 +6,19 @@
  * @subpackage VexVox
  * @since VexVox 1.0
  */
+?>
+<?php get_header(); ?>
+<header class="page-header">
+	<h2 class="page-title"><?php _e( 'Not Found', 'vexvox' ); ?></h2>
+</header>
 
-vexvox_remap_mt();
-get_header(); ?>
+<p>
+	<?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'vexvox' ); ?>
+</p>
 
+<p>
+	<?php get_search_form(); ?>
+</p>
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
-
-			<header class="page-header">
-				<h2 class="page-title"><?php _e( 'Not Found', 'vexvox' ); ?></h2>
-			</header>
-
-			<div class="page-content">
-				<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'vexvox' ); ?></p>
-
-				<?php get_search_form(); ?>
-			</div><!-- .page-content -->
-
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
-<?php
-get_sidebar( 'content' );
-get_sidebar();
-get_footer();
+<?php get_sidebar(); ?>
+<?php get_footer();
