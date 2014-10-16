@@ -19,22 +19,22 @@ if ( post_password_required() ) {
 ?>
 
 <div class="row">
-	<div id="comments" class="comments-area col-md-offset-4 col-md-8">
+	<div id="comments" class="col-md-offset-4 col-md-8">
 
 	<?php if ( have_comments() ) : ?>
-	
-		<div class="source-label">
-			<h3 class="comments-title source-title">Comments</h3>
-		</div>
+
+		<header class="source-label">
+			<h3 class="source-title">Comments</h3>
+		</header>
 
 		<div class="comments-list-area">
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h4 class="screen-reader-text sr-only"><?php _e( 'Comment navigation', 'vexvox' ); ?></h4>
+		<nav role="navigation">
+			<h4 class="sr-only"><?php _e( 'Comment navigation', 'vexvox' ); ?></h4>
 
 			<ul class="pager">
-				<li><div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'vexvox' ) ); ?></div></li>
-				<li><div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'vexvox' ) ); ?></div></li>
+				<li><?php previous_comments_link( __( '&larr; Older Comments', 'vexvox' ) ); ?></li>
+				<li><?php next_comments_link( __( 'Newer Comments &rarr;', 'vexvox' ) ); ?></li>
 			</ul>
 		</nav><!-- #comment-nav-above -->
 		<?php endif; // Check for comment navigation. ?>
@@ -50,11 +50,12 @@ if ( post_password_required() ) {
 		</ol><!-- .comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-			<h4 class="screen-reader-text sr-only"><?php _e( 'Comment navigation', 'vexvox' ); ?></h4>
+		<nav role="navigation">
+			<h4 class="sr-only"><?php _e( 'Comment navigation', 'vexvox' ); ?></h4>
+
 			<ul class="pager">
-				<li><div class="nav-previous"><?php previous_comments_link( __( '&laquo; Older Comments', 'vexvox' ) ); ?></div></li>
-				<li><div class="nav-next"><?php next_comments_link( __( 'Newer Comments &raquo;', 'vexvox' ) ); ?></div></li>
+				<li><?php previous_comments_link( __( '&laquo; Older Comments', 'vexvox' ) ); ?></li>
+				<li><?php next_comments_link( __( 'Newer Comments &raquo;', 'vexvox' ) ); ?></li>
 			</ul>
 		</nav><!-- #comment-nav-below -->
 		<?php endif; // Check for comment navigation. ?>
@@ -69,13 +70,13 @@ if ( post_password_required() ) {
 	<?php
 	$comment_args = array(
 		'fields' => apply_filters('comment_form_default_fields', array(
-			'author' => '<div class="comment-form-author form-group"><label for="author" class="control-label">' . __( 'Name', 'domainreference' ) . ' <span class="required">*</span></label> ' . ( $req ? '<div class="">' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div></div>',
-			'email' => '<div class="comment-form-email form-group"><label for="email" class="control-label">' . __( 'Email', 'domainreference' ) . ' <span class="required">*</span></label> ' . ( $req ? '<div class="">' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div></div>',
-			'url' => '<div class="comment-form-url form-group"><label for="url" class="control-label">' . __( 'Website', 'domainreference' ) . '</label>' . '<div class=""><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></div></div>',
+			'author' => '<div class="form-group"><label for="author" class="control-label">' . __( 'Name', 'vexvox' ) . ' <span class="required">*</span></label> ' . ( $req ? '<div class="">' : '' ) . '<input id="author" class="form-control" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div></div>',
+			'email' => '<div class="form-group"><label for="email" class="control-label">' . __( 'Email', 'vexvox' ) . ' <span class="required">*</span></label> ' . ( $req ? '<div class="">' : '' ) . '<input id="email" class="form-control" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div></div>',
+			'url' => '<div class="form-group"><label for="url" class="control-label">' . __( 'Website', 'vexvox' ) . '</label>' . '<div class=""><input id="url" class="form-control" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></div></div>',
 		)),
-		'comment_field' => '<div class="comment-form-comment form-group"><label for="comment" class="control-label">' . _x( 'Comment', 'noun' ) . '</label><div class=""><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" class="form-control"></textarea></div></div>',
+		'comment_field' => '<div class="form-group"><label for="comment" class="control-label">' . _x( 'Comment', 'noun' ) . '</label><div class=""><textarea id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true" class="form-control"></textarea></div></div>',
 		'comment_notes_after' => '<p class="form-allowed-tags help-block">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), allowed_tags() ) . '</p>',
-		'class_form' => 'form-horizontal',
+		'class_form' => 'form',
 		'class_submit' => 'btn btn-default',
 		'title_reply' => __('Post a comment'),
 	);

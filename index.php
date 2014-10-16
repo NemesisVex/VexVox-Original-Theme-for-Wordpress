@@ -11,42 +11,19 @@
  *
  * @package WordPress
  * @subpackage VexVox
- * @since VexVox 1.0
+ * @since VexVox 1.2
  */
+?>
+<?php get_header(); ?>
 
-get_header(); ?>
-
-					<section id="main-content" class="main-content">
-
-<?php
-	if ( is_front_page() && vexvox_has_featured_posts() ) {
-		// Include the featured content template.
-		get_template_part( 'featured-content' );
-	}
-
-			if ( have_posts() ) :
-				// Start the Loop.
-				while ( have_posts() ) : the_post();
-
-					/*
-					 * Include the post format-specific template for the content. If you want to
-					 * use this in a child theme, then include a file called called content-___.php
-					 * (where ___ is the post format) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-
-				endwhile;
-				// Previous/next post navigation.
-				vexvox_paging_nav();
-
-			else :
-				// If no content, include the "No posts found" template.
-				get_template_part( 'content', 'none' );
-
-			endif;
-		?>
-					</section><!-- #main-content -->
-
-<?php
-get_sidebar( 'vexvox' );
-get_footer();
+<?php if ( have_posts() ) : ?>
+	<?php while ( have_posts() ) : // Start the Loop. ?>
+		<?php the_post(); ?>
+		<?php get_template_part( 'content', get_post_format() ); // Include the post format-specific template for the content. If you want to use this in a child theme, then include a file called called content-___.php (where ___ is the post format) and that will be used instead. ?>
+	<?php endwhile; ?>
+	<?php VexVox_Template_Tags::paging_nav(); // Previous/next post navigation. ?>
+<?php else : ?>
+	<?php get_template_part( 'content', 'none' ); // If no content, include the "No posts found" template. ?>
+	<?php endif; ?>
+<?php get_sidebar(); ?>
+<?php get_footer();
