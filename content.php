@@ -8,6 +8,8 @@
  * @subpackage VexVox
  * @since VexVox 1.0
  */
+
+namespace VigilantMedia\WordPress\Themes\VexVox;
 ?>
 						<div class="row">
 							<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-12'); ?>>
@@ -22,18 +24,18 @@
 								<div class="row">
 									<div class="col-md-4">
 									<?php if ('post' == get_post_type()): ?>
-										<?php VexVox_Template_Tags::posted_on(); ?>
+										<?php TemplateTags::posted_on(); ?>
 									<?php endif; ?>
 
-									<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && VexVox_Template_Tags::categorized_blog() ) : ?>
-										<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'vexvox' ) ); ?></span>
+									<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && TemplateTags::categorized_blog() ) : ?>
+										<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', WP_TEXT_DOMAIN ) ); ?></span>
 									<?php endif; ?>
 
 										<ul class="meta">
 										<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
-											<li><?php comments_popup_link( __( 'Leave a comment', 'vexvox' ), __( '1 Comment', 'vexvox' ), __( '% Comments', 'vexvox' ) ); ?>
+											<li><?php comments_popup_link( __( 'Leave a comment', WP_TEXT_DOMAIN ), __( '1 Comment', WP_TEXT_DOMAIN ), __( '% Comments', WP_TEXT_DOMAIN ) ); ?>
 										<?php endif; ?></li>
-											<li><?php edit_post_link( __( 'Edit', 'vexvox' ), '', '' ); ?></li>
+											<li><?php edit_post_link( __( 'Edit', WP_TEXT_DOMAIN ), '', '' ); ?></li>
 										</ul>
 									</div>
 									<div class="col-md-8 article-body">
@@ -44,9 +46,9 @@
 									<?php else : ?>
 										<div class="entry-content">
 										<?php
-											the_content( __( 'Continue reading <span class="meta-nav">&raquo;</span>', 'vexvox' ) );
+											the_content( __( 'Continue reading <span class="meta-nav">&raquo;</span>', WP_TEXT_DOMAIN ) );
 											wp_link_pages( array(
-												'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'vexvox' ) . '</span>',
+												'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', WP_TEXT_DOMAIN ) . '</span>',
 												'after'       => '</div>',
 												'link_before' => '<span>',
 												'link_after'  => '</span>',

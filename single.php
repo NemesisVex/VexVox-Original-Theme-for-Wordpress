@@ -6,6 +6,8 @@
  * @subpackage VexVox
  * @since VexVox 1.2
  */
+
+namespace VigilantMedia\WordPress\Themes\VexVox;
 ?>
 <?php get_header(); ?>
 
@@ -17,7 +19,7 @@
 			<?php comments_template(); ?>
 		<?php endif; ?>
 	<?php endwhile; ?>
-	<?php VexVox_Template_Tags::post_nav(); // Previous/next post navigation. ?>
+	<?php TemplateTags::post_nav(); // Previous/next post navigation. ?>
 <?php else : ?>
 	<?php get_template_part( 'content', 'none' ); // If no content, include the "No posts found" template. ?>
 <?php endif; ?>

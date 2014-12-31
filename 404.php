@@ -6,14 +6,16 @@
  * @subpackage VexVox
  * @since VexVox 1.0
  */
+
+namespace VigilantMedia\WordPress\Themes\VexVox;
 ?>
 <?php get_header(); ?>
 <header class="page-header">
-	<h2 class="page-title"><?php _e( 'Not Found', 'vexvox' ); ?></h2>
+	<h2 class="page-title"><?php _e( 'Not Found', WP_TEXT_DOMAIN ); ?></h2>
 </header>
 
 <p>
-	<?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'vexvox' ); ?>
+	<?php _e( 'It looks like nothing was found at this location. Maybe try a search?', WP_TEXT_DOMAIN ); ?>
 </p>
 
 <p>

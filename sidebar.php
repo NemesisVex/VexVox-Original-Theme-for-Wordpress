@@ -6,6 +6,8 @@
  * @subpackage VexVox
  * @since VexVox 1.0
  */
+
+namespace VigilantMedia\WordPress\Themes\VexVox;
 ?>
 				</div>
 
