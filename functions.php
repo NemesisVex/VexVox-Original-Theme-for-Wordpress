@@ -25,15 +25,25 @@
  * @since VexVox 1.1
  */
 
-require get_template_directory() . '/lib/VexVox_Filters.php';
-require get_template_directory() . '/lib/VexVox_Template_Tags.php';
+namespace VigilantMedia\WordPress\Themes\VexVox;
 
-add_filter( 'wp_page_menu_args', array( 'VexVox_Filters', 'wp_page_menu_args' ) );
+const WP_TEXT_DOMAIN = 'vexvox';
 
-add_filter( 'wp_title', array( 'VexVox_Filters', 'wp_title' ), 10, 2 );
+if (!function_exists( __NAMESPACE__ . '\\autoload' )) {
+	function autoload( $class_name )
+	{
+		$class_name = ltrim($class_name, '\\');
+		if ( strpos( $class_name, __NAMESPACE__ ) !== 0 ) {
+			return;
+		}
 
-add_action( 'after_setup_theme', array( 'VexVox_Filters', 'after_setup_theme' ) );
+		$class_name = str_replace( __NAMESPACE__, '', $class_name );
 
-add_action( 'widgets_init', array( 'VexVox_Filters', 'widgets_init' ) );
+		$path = get_template_directory() . '/lib' . str_replace('\\', DIRECTORY_SEPARATOR, $class_name) . '.php';
 
-add_action( 'wp_enqueue_scripts', array( 'VexVox_Filters', 'wp_enqueue_scripts' ) );
+		require_once($path);
+	}
+}
+
+spl_autoload_register(__NAMESPACE__ . '\\autoload');
+Setup::init();

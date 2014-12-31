@@ -8,6 +8,8 @@
  * @subpackage VexVox
  * @since VexVox 1.2
  */
+
+namespace VigilantMedia\WordPress\Themes\VexVox;
 ?>
 
 				<footer class="col-md-12" role="contentinfo">
@@ -16,7 +18,7 @@
 
 					<div class="site-info">
 						<?php do_action( 'vexvox_credits' ); ?>
-						<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'vexvox' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'vexvox' ), 'WordPress' ); ?></a>
+						<a href="<?php echo esc_url( __( 'http://wordpress.org/', WP_TEXT_DOMAIN ) ); ?>"><?php printf( __( 'Proudly powered by %s', WP_TEXT_DOMAIN ), 'WordPress' ); ?></a>
 					</div><!-- .site-info -->
 				</footer><!-- #colophon -->
 			</div><!-- #row -->
