@@ -6,7 +6,10 @@
  * Time: 9:28 PM
  */
 
-class VexVox_Template_Tags {
+namespace VigilantMedia\WordPress\Themes\VexVox;
+
+
+class TemplateTags {
 	public static function get_cdn_uri() {
 		return VIGILANTMEDIA_CDN_BASE_URI;
 	}
@@ -40,8 +43,8 @@ class VexVox_Template_Tags {
 			'current'  => $paged,
 			'mid_size' => 1,
 			'add_args' => array_map( 'urlencode', $query_args ),
-			'prev_text' => __( '&larr; Previous', 'musicwhore2014' ),
-			'next_text' => __( 'Next &rarr;', 'musicwhore2014' ),
+			'prev_text' => __( '&larr; Previous', WP_TEXT_DOMAIN ),
+			'next_text' => __( 'Next &rarr;', WP_TEXT_DOMAIN ),
 			'type' => 'list',
 			'list_class' => 'pagination',
 		);
@@ -51,7 +54,7 @@ class VexVox_Template_Tags {
 
 			?>
 			<nav role="navigation">
-				<h1 class="sr-only"><?php _e( 'Posts navigation', 'musicwhore2014' ); ?></h1>
+				<h1 class="sr-only"><?php _e( 'Posts navigation', WP_TEXT_DOMAIN ); ?></h1>
 				<?php echo $links; ?>
 			</nav><!-- .navigation -->
 		<?php
@@ -69,15 +72,15 @@ class VexVox_Template_Tags {
 
 		?>
 		<nav class="post-navigation" role="navigation">
-			<h4 class="sr-only"><?php _e( 'Post navigation', 'vexvox' ); ?></h4>
+			<h4 class="sr-only"><?php _e( 'Post navigation', WP_TEXT_DOMAIN ); ?></h4>
 			<div class="nav-links entry-nav">
 				<p>
 					<?php if ( is_attachment() ) : ?>
-				<p><?php previous_post_link( '%link', __( '<span title="Published In %title">Published In</span> %title', 'vexvox' ) ); ?></p>
+				<p><?php previous_post_link( '%link', __( '<span title="Published In %title">Published In</span> %title', WP_TEXT_DOMAIN ) ); ?></p>
 				<?php else : ?>
-					<?php previous_post_link( '%link', __( '<span title="Previous Post: %title">PREVIOUS</span>', 'vexvox' ) ); ?>
+					<?php previous_post_link( '%link', __( '<span title="Previous Post: %title">PREVIOUS</span>', WP_TEXT_DOMAIN ) ); ?>
 					<?php if ((get_previous_post_link() != "") && (get_next_post_link() != "")): ?>&#149;<?php endif; ?>
-					<?php next_post_link( '%link', __( '<span title="Next Post: %title">NEXT</span>', 'vexvox' ) ); ?>
+					<?php next_post_link( '%link', __( '<span title="Next Post: %title">NEXT</span>', WP_TEXT_DOMAIN ) ); ?>
 				<?php endif; ?>
 				</p>
 			</div><!-- .nav-links -->
@@ -87,7 +90,7 @@ class VexVox_Template_Tags {
 
 	public static function posted_on() {
 		if ( is_sticky() && is_home() && ! is_paged() ) {
-			echo '' . __( 'Sticky', 'vexvox' ) . '';
+			echo '' . __( 'Sticky', WP_TEXT_DOMAIN ) . '';
 		}
 
 		// Set up and print post meta information.
