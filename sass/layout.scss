@@ -61,8 +61,8 @@ time
 
 #masthead
 {
-	background-color: #9C0;
-	border-bottom: 3px double #399FD5;
+	background-color: $masthead-background-color;
+	border-bottom: 3px double $masthead-border-bottom-color;
 }
 
 #frame-1
