@@ -88,8 +88,6 @@ class Setup {
 
 		wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.2' );
 
-		wp_enqueue_style( 'vexvox-typography', get_stylesheet_directory_uri() . '/css/typography.css' );
-		wp_enqueue_style( 'vexvox-layout', get_stylesheet_directory_uri() . '/css/layout.css' );
 		wp_enqueue_style( WP_TEXT_DOMAIN, get_stylesheet_uri() );
 	}
 
